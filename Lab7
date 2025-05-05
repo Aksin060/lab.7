@@ -1,0 +1,24 @@
+numbers = [5, 9, 12, 7, 18, 4, 21, 8, 3, 10]
+
+with open("massiv.txt", "w") as file:
+    for num in numbers:
+        file.write(str(num) + "\n")
+
+divisible_by_3 = []
+with open("massiv.txt", "r") as file:
+    for line in file:
+        num = int(line.strip())
+        if num % 3 == 0:
+            divisible_by_3.append(num)
+
+with open("bolunenler.txt", "w") as file:
+    for num in divisible_by_3:
+        file.write(str(num) + "\n")
+
+product = 1
+if divisible_by_3:
+    for num in divisible_by_3:
+        product *= num
+    print("3-ə bölünən ədədlərin hasili:", product)
+else:
+    print("3-ə bölünən ədəd tapılmadı.")
